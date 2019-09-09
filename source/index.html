@@ -1,15 +1,55 @@
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <title>Техномарт | Главная страница</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
+
 <body>
-  
+  <header class="main-header">
+    <!-- Здесь надо подумать над семантикой -->
+    <nav class="main-navigation">
+      <div class="navigation__row_dark">
+        <div class="container">
+          <span class="logo">Техномарт</span>
+          <div class="main-header__search-wrapper">
+            <input type="search" name="header-search" placeholder="Поиск:" class="main-header__search">
+          </div>
+          <a href="bookmarks.html" class="button button-silent button-bookmarks">Закладки: 0</a>
+          <a href="shopcart.html" class="button button-silent button-silent_highlight button-shopcart">Корзина: 0</a>
+          <a href="create-order.html" class="button button-second">Оформить заказ</a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="whiteboard">
+          <p class="header__tagline">Интернет-магазин<br> строительных материалов<br> и инструмента для ремонта</p>
+          <p class="header__coordinates">
+            <span class="our-phone">+7 (812) 555-05-55</span>
+            <span class="our-place">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
+          </p>
+          <div class="user-navigation">
+            <a href="sign-in.html" class="button button-auth button-sign-in">Войти</a>
+            <a href="sign-up.html" class="button button-auth">Регистрация</a>
+          </div>
+        </div>
+        <ul class="site-navigation__list">
+          <li><a href="index.html">Главная</a></li> <!-- Нужна ли тут ссылка?? -->
+          <li><a href="company.html">Компания</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="news.html">Новости</a></li>
+          <li><a href="spec-offers.html">Спецпредложения</a></li>
+          <li><a href="delivery.html">Доставка</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
 
   <script type="text/javascript" src="js/script.js"></script>
 </body>
+
 </html>
