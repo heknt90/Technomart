@@ -59,6 +59,7 @@ li,
   text-transform: uppercase;
   font: inherit;
   border-radius: 3px;
+  color: #fff;
 }
 
 .button__promo {
@@ -92,6 +93,10 @@ li,
   }
 }
 
+.button-main {
+  padding: 10px 20px;
+}
+
 .button-second {
   background-color: $color__green;
 
@@ -102,6 +107,21 @@ li,
   &:active {
     background-color: $color__green_active;
     color: rgba(255,255,255,.5);
+  }
+}
+
+.button-second_alternative {
+  border: $color__green 3px solid;
+  border-radius: 2px;
+  color: $color__blue;
+
+  &:hover {
+    border-color: $color__blue;
+  }
+
+  &:active {
+    border-color: $color__gray;
+    color: $color__gray;
   }
 }
 
