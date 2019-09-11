@@ -13,6 +13,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.2",
+    "gulp-uncss": "^1.0.6",
     "pump": "^3.0.0"
   },
   "scripts": {
