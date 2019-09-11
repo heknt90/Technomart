@@ -20,7 +20,10 @@ gulp.task('style', function() {
       .pipe(sass())
       .pipe(postcss([
         require('css-mqpacker')({sort: true}),
-        autoprefixer
+        autoprefixer (
+          ['last 2 versions', 'ie 10', 'ie 11'],
+          {grid: true}
+        )
       ]))
       .pipe(gulp.dest('build/css'))
       .pipe(minify())
