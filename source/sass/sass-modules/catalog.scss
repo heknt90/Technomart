@@ -23,3 +23,13 @@
     }
   }
 }
+
+.inner__main-header {
+  display: block;
+  padding: 30px;
+  background-color: $color__gray;
+  font-size: 30px;
+  line-height: 30px;
+  color: $color__blue;
+  text-transform: uppercase;
+}
