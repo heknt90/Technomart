@@ -98,8 +98,7 @@ gulp.task('serve', gulp.series(function () {
     },
     notify: false,
     host: 'localhost',
-    port: 3000,
-    browser: "chrome"
+    port: 3000
   });
   gulp.watch('source/sass/**/*.scss', gulp.series('style'));
   gulp.watch('source/*.html', gulp.series('html'));
