@@ -19,9 +19,9 @@ gulp.task('style', function() {
   return gulp.src('source/sass/style.scss')
       .pipe(plumber())
       .pipe(sass())
-      .pipe(uncss({
-        html: ['source/*.html']
-      }))
+      // .pipe(uncss({
+      //   html: ['source/*.html']
+      // }))
       .pipe(postcss([
         require('css-mqpacker')({sort: true}),
         autoprefixer(
