@@ -288,8 +288,10 @@ li,
 
   .user-navigation {
     display: flex;
+    width: 300px;
     justify-content: flex-end;
     flex-grow: 1;
+    flex-wrap: wrap;
 
     .button-auth {
       padding: 14px 25px 14px;
@@ -325,6 +327,52 @@ li,
 
     .button + .button {
       margin-left: 10px;
+    }
+
+    .user-authentification {
+      background-color: #fff;
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 10px 11px 13px;
+      margin-bottom: 20px;
+
+      > * {
+        display: flex;
+        align-items: center;
+      }
+
+      .user-profile {
+        margin-right: 15px;
+      }
+    }
+
+    .user-navigation__list {
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 19px;
+      margin-right: auto;
+
+      li {
+        font-size: 16px;
+        line-height: 18px;
+        text-decoration: underline;
+        color: $color__blue;
+
+        + li {
+          margin-left: 32px;
+          position: relative;
+
+          &:before {
+            position: absolute;
+            left: -17px; top: 8px;
+            content: '';
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background-color: $color__blue;
+          }
+        }
+      }
     }
   }
 }
