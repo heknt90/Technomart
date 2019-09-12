@@ -353,9 +353,10 @@
     }
 
     .modal__map {
-      display: none;
+      // display: none;
       position: absolute;
       top: 33px; left: 0; right: 0;
+      box-shadow: $shadow__item;
 
       img {
         display: block;
