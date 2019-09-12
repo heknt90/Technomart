@@ -169,28 +169,43 @@
         </header>
         <ul class="manufactures__list">
           <li class="manufacture__item">
+            <a href="bosch.html"></a>
             <img src="img/bosch_126_37.jpg" alt="Bosch">
           </li>
           <li class="manufacture__item">
-            <img src="img/Makita_123_40.jpg" alt="Makita">
+            <a href="makita.html">
+              <img src="img/Makita_123_40.jpg" alt="Makita">
+            </a>
           </li>
           <li class="manufacture__item">
-            <img src="img/DeWALT_146_44.jpg" alt="DeWalt">
+            <a href="dewalt.html">
+              <img src="img/DeWALT_146_44.jpg" alt="DeWalt">
+            </a>
           </li>
           <li class="manufacture__item">
-            <img src="img/Интерскол_200_88.jpg" alt="Интерскол">
+            <a href="interskol.html">
+              <img src="img/Интерскол_200_88.jpg" alt="Интерскол">
+            </a>
           </li>
           <li class="manufacture__item">
-            <img src="img/Hitachi_169_31.jpg" alt="Hitachi">
+            <a href="hitachi.html">
+              <img src="img/Hitachi_169_31.jpg" alt="Hitachi">
+            </a>
           </li>
           <li class="manufacture__item">
-            <img src="img/LG_121_73.jpg" alt="LG">
+            <a href="lg.html">
+              <img src="img/LG_121_73.jpg" alt="LG">
+            </a>
           </li>
           <li class="manufacture__item">
-            <img src="img/AEG_151_96.jpg" alt="AEG">
+            <a href="aeg.html">
+              <img src="img/AEG_151_96.jpg" alt="AEG">
+            </a>
           </li>
           <li class="manufacture__item">
-            <img src="img/Metabo_204_69.jpg" alt="Metabo">
+            <a href="metabo.html">
+              <img src="img/Metabo_204_69.jpg" alt="Metabo">
+            </a>
           </li>
         </ul>
       </section>
@@ -267,6 +282,12 @@
 
           <img src="img/mini_map_300_158.jpg" alt="Схема проезда" class="map_mini">
           <button type="button" name="button" class="button button-main">Заблудились? Напишите нам!</button>
+
+          <div class="modal__map">
+            <img src="img/full-map.jpg" alt="Как до нас добраться">
+            <button type="button" name="button-modal-close" class="modal__close"><span class="visually-hidden">Закрыть</span></button>
+          </div>
+
         </div>
       </section>
     </div>
@@ -329,6 +350,26 @@
 
   </footer>
 
+  <div class="modal__sign-in">
+    <form action="index.html" method="post">
+      <p class="input-group">
+        <label for="">Ваше имя:</label>
+        <input type="text" required name="message-sender" placeholder="Представьтесь, пожалуйста">
+      </p>
+      <p class="input-group">
+        <label for="">Ваш e-mail:</label>
+        <input type="email" required name="message-email" placeholder="Для отправки ответа">
+      </p>
+      <p class="input-group">
+        <label for="">Текст письма:</label>
+        <textarea required name="message-content" rows="8" cols="80" placeholder="В свободной форме"></textarea>
+      </p>
+      <div class="submit-wrap">
+        <button type="submit" name="button-submit" class="button button-main">Отправить</button>
+      </div>
+    </form>
+    <button type="button" name="button-modal-close" class="modal__close"><span class="visually-hidden">Закрыть</span></button>
+  </div>
 
   <script type="text/javascript" src="js/script.js"></script>
 </body>
