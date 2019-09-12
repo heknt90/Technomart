@@ -48,6 +48,8 @@
   }
 }
 
+///////////////////////////////////////////////!!!!!!!!!!!!!!!!
+
 .pagination {
   margin: 52px 0 60px;
 }
@@ -89,5 +91,28 @@
     border: 1px solid #e5e5e5;
     text-transform: uppercase;
     background-color: transparent;
+  }
+}
+
+.about-product {
+  background-color: $color__gray;
+
+  .container {
+    padding: 64px 0 68px;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+  }
+
+  h2 + p {
+    margin-top: 27px;
+  }
+
+  p {
+    font-family: $font__alternative;
+    line-height: 24px;
   }
 }
