@@ -81,7 +81,36 @@
 
         <div class="results">
           <aside class="sortables">
-            <h2>Сортировка</h2>
+            <h3>Сортировка</h3>
+            <ul class="sort-order-type__list">
+              <li>
+                <input checked="checked" id="sort-order-type__price" type="radio" name="sort-order-type" value="price" class="visually-hidden">
+                <label for="sort-order-type__price">По цене</label>
+              </li>
+              <li>
+                <input id="sort-order-type__type" type="radio" name="sort-order-type" value="type" class="visually-hidden">
+                <label for="sort-order-type__type">По типу</label>
+              </li>
+              <li>
+                <input id="sort-order-type__functions" type="radio" name="sort-order-type" value="functions" class="visually-hidden">
+                <label for="sort-order-type__functions">По функционалу</label>
+              </li>
+            </ul>
+            <ul class="sort-order-direction__list">
+              <li>
+                <input checked="checked" id="sort-order-direction__inverse" type="radio" name="sort-order-direction" value="inverse" class="visually-hidden">
+                <label for="sort-order-direction__inverse" class="order-indicator">
+                  <span class="visually-hidden">По возрастанию</span>
+                </label>
+              </li>
+              <li>
+                <input id="sort-order-direction__reverse" type="radio" name="sort-order-direction" value="reverse" class="visually-hidden">
+                <label for="sort-order-direction__reverse" class="order-indicator">
+                  <span class="visually-hidden">По убыванию</span>
+                </label>
+              </li>
+            </ul>
+
           </aside>
 
           <ul class="products__list">
