@@ -29,6 +29,7 @@
 .section-header {
   padding: 26px 24px;
   margin-top: 20px;
+  margin-bottom: 20px;
   background-color: $color__gold_light;
   display: flex;
   justify-content: space-between;
@@ -50,7 +51,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: -20px -10px 0;
 
   li {
     width: 220px;
@@ -132,6 +132,10 @@
       color: #a9a9a9;
     }
   }
+}
+
+.products__list, .manufactures__list {
+  margin: -20px -10px 0;
 }
 
 .products__list li, .manufactures__list li {
@@ -354,7 +358,7 @@
     }
 
     .modal__map {
-      // display: none;
+      display: none;
       position: absolute;
       top: 33px; left: 0; right: 0;
       box-shadow: $shadow__item;
