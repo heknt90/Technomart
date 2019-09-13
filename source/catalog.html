@@ -74,9 +74,60 @@
         <aside class="filters">
           <header>
             <h2>Фильтр:</h2>
-
-
           </header>
+          <fieldset>
+            <h3>Цена:</h3>
+            <div class="price-range__wrap">
+              <div class="price-range__context">
+                <div class="price-range__selected">
+                  <span class="price-range__handler price-range__handler_min"></span>
+                  <span class="price-range__handler price-range__handler_max"></span>
+                </div>
+              </div>
+            </div>
+
+            <p class="price-range__input-group">
+              <input type="number" name="price-range__input_min" value="0" class="price-range__input">
+              -
+              <input type="number" name="price-range__input_max" value="30000" class="price-range__input">
+            </p>
+          </fieldset>
+          <fieldset>
+            <h3>Производители:</h3>
+            <p class="input-group">
+              <input checked="checked" id='produced-by-bosch' type="checkbox" name="produced-by" value="bosch" class="visually-hidden">
+              <label for="produced-by-bosch">Bosch</label>
+            </p>
+            <p class="input-group">
+              <input id="produced-by-interskol" type="checkbox" name="produced-by" value="interskol" class="visually-hidden">
+              <label for="produced-by-interskol">Интерскол</label>
+            </p>
+            <p class="input-group">
+              <input checked="checked" id="produced-by-makita" type="checkbox" name="produced-by" value="makita" class="visually-hidden">
+              <label for="produced-by-makita">Makita</label>
+            </p>
+            <p class="input-group">
+              <input id="produced-by-dewalt" type="checkbox" name="produced-by" value="dewalt" class="visually-hidden">
+              <label for="produced-by-dewalt">DeWalt</label>
+            </p>
+            <p class="input-group">
+              <input id="produced-by-hitachi" type="checkbox" name="produced-by" value="hitachi" class="visually-hidden">
+              <label for="produced-by-hitachi">Hitachi</label>
+            </p>
+          </fieldset>
+          <fieldset>
+            <h3>Питание:</h3>
+            <p class="input-group">
+              <input checked="checked" id="power-type-dc" type="radio" name="power-type" value="dc" class="visually-hidden">
+              <label for="power-type-dc">Аккумуляторные</label>
+            </p>
+            <p class="input-group">
+              <input id="power-type-ac" type="radio" name="power-type" value="ac" class="visually-hidden">
+              <label for="power-type-ac">Сетевые</label>
+            </p>
+          </fieldset>
+
+          <button type="submit" name="button" class="button button-submit">Показать</button>
         </aside>
 
         <div class="results">
