@@ -47,7 +47,7 @@ gulp.task('images', function () {
 });
 
 gulp.task('sprite', function () {
-  return gulp.src('source/img/svg/*.svg')
+  return gulp.src('source/sprite/*.svg')
     .pipe(svgstore({
       inlineSvg: true
     }))
