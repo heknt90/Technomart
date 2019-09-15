@@ -353,24 +353,26 @@
 
   </footer>
 
-  <div class="modal__sign-in">
-    <form action="index.html" method="post">
-      <p class="input-group">
-        <label for="">Ваше имя:</label>
-        <input type="text" required name="message-sender" placeholder="Представьтесь, пожалуйста">
-      </p>
-      <p class="input-group">
-        <label for="">Ваш e-mail:</label>
-        <input type="email" required name="message-email" placeholder="Для отправки ответа">
-      </p>
-      <p class="input-group">
-        <label for="">Текст письма:</label>
-        <textarea required name="message-content" rows="8" cols="80" placeholder="В свободной форме"></textarea>
-      </p>
-      <div class="submit-wrap">
-        <button type="submit" name="button-submit" class="button button-main">Отправить</button>
-      </div>
-    </form>
+  <div class="modal__block modal__sign-in">
+    <div class="modal__body">
+      <form action="index.html" method="post">
+        <p class="input-group">
+          <label for="">Ваше имя:</label>
+          <input type="text" required name="message-sender" placeholder="Представьтесь, пожалуйста">
+        </p>
+        <p class="input-group">
+          <label for="">Ваш e-mail:</label>
+          <input type="email" required name="message-email" placeholder="Для отправки ответа">
+        </p>
+        <p class="input-group">
+          <label for="">Текст письма:</label>
+          <textarea required name="message-content" rows="8" cols="80" placeholder="В свободной форме"></textarea>
+        </p>
+        <div class="modal__footer">
+          <button type="submit" name="button-submit" class="button button-main">Отправить</button>
+        </div>
+      </form>
+    </div>
     <button type="button" name="button-modal-close" class="modal__close"><span class="visually-hidden">Закрыть</span></button>
   </div>
 
