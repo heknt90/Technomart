@@ -6,6 +6,11 @@
   <title>Техномарт | Каталог товаров</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.min.css">
+  <!-- Подключаем полифил, для отображения svg-спрайта в IE11 -->
+  <script type="text/javascript" src="js/svgforeverybody.js"></script>
+  <script type="text/javascript">
+    svg4everybody();
+  </script>
 </head>
 
 <body>
@@ -19,9 +24,22 @@
           </a>
           <div class="main-header__search-wrapper">
             <input type="search" name="header-search" placeholder="Поиск:" class="main-header__search">
+            <svg width="17" height="17" class="search-icon">
+              <use xlink:href="img/sprite.svg#icon-search"></use>
+            </svg>
           </div>
-          <a href="bookmarks.html" class="button button-silent button-bookmarks">Закладки: 0</a>
-          <a href="shopcart.html" class="button button-silent button-silent_highlight button-shopcart">Корзина: 10</a>
+          <a href="bookmarks.html" class="button button-silent">
+            <svg width="14" height="16" class="main-header__buttons-icon">
+              <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+            </svg>
+            Закладки: 0
+          </a>
+          <a href="shopcart.html" class="button button-silent">
+            <svg width="15" height="15" class="main-header__buttons-icon">
+              <use xlink:href="img/sprite.svg#icon-cart"></use>
+            </svg>
+            Корзина: 0
+          </a>
           <a href="create-order.html" class="button button-second">Оформить заказ</a>
         </div>
       </div>
@@ -29,17 +47,26 @@
         <div class="whiteboard">
           <p class="header__tagline">Интернет-магазин<br> строительных материалов<br> и инструмента для ремонта</p>
           <p class="header__coordinates">
-            <span class="our-phone">+7 (812) 555-05-55</span>
+            <span class="our-phone">
+              <svg width="19" height="19" class="icon-phone">
+                <use xlink:href="img/sprite.svg#icon-phone"></use>
+              </svg>
+              +7 (812) 555-05-55
+            </span>
             <span class="our-place">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
           </p>
           <div class="user-navigation">
             <div class="user-authentification">
-              <a href="profile.html">
-                <img src="img/svg/icon-user.svg" alt="Профиль пользователя" class="user-profile">
+              <a href="profile.html" class="user-navigation__profile">
+                <svg width="20" height="18" class="icon-auth">
+                  <use xlink:href="img/sprite.svg#icon-user"></use>
+                </svg>
                 <h4>Равшан Джамшутович</h4>
               </a>
-              <a href="logout.html">
-                <img src="img/svg/icon-login.svg" alt="Выйти из профиля" class="profile-logout">
+              <a href="logout.html" class="user-navigation__logout">
+                <svg width="21" height="17" class="icon-auth">
+                  <use xlink:href="img/sprite.svg#icon-logout"></use>
+                </svg>
               </a>
             </div>
             <ul class="user-navigation__list">
@@ -64,7 +91,11 @@
   <main>
     <div class="container">
       <ul class="breadcrumbs">
-        <li><a href="index.html"><img src="img/svg/icon-home.svg" alt="Вернуться на главную"></a></li>
+        <li><a href="index.html">
+          <svg width="15" height="12" class="icon-auth">
+            <use xlink:href="img/sprite.svg#icon-home"></use>
+          </svg>
+        </a></li>
         <li><a href="#">Каталог</a></li>
         <li><a href="#">Инструмент</a></li>
         <li>Перфораторы</li>
@@ -339,9 +370,27 @@
           Все права защищены
         </p>
         <ul class="social__list">
-          <li class="social-vk"><a href="https://vk.com"></a> </li>
-          <li class="social-fb"><a href="https://facebook.com"></a> </li>
-          <li class="social-inst"><a href="https://instagram.com"></a> </li>
+          <li>
+            <a href="https://vk.com">
+              <svg width="26" height="15">
+                <use xlink:href="img/sprite.svg#icon-vk"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://vk.com">
+              <svg width="12" height="22">
+                <use xlink:href="img/sprite.svg#icon-fb"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://vk.com">
+              <svg width="21" height="21">
+                <use xlink:href="img/sprite.svg#icon-insta"></use>
+              </svg>
+            </a>
+          </li>
         </ul>
 
         <p class="feedback">
@@ -358,7 +407,7 @@
 
   </footer>
 
-  <div class="modal__block modal__sign-in">
+  <div class="modal__block modal__write-us">
     <div class="modal__body">
       <form action="index.html" method="post">
         <p class="input-group">

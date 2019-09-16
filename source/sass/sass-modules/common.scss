@@ -134,11 +134,19 @@ textarea {
 
   &:hover {
     background-color: $color__blue-dark_hover;
+
+    .main-header__buttons-icon {
+      color: #fff;
+    }
   }
 
   &:active {
     background-color: $color__blue-dark_active;
     color: rgba(255,255,255,.5);
+
+    .main-header__buttons-icon {
+      color: #8b8e94;
+    }
   }
 }
 
@@ -146,6 +154,7 @@ textarea {
   background-color: #fff;
   color: #000;
   padding: 10px 20px;
+  text-transform: inherit;
 
   &:hover {
     color: $color__red;
@@ -198,14 +207,15 @@ textarea {
 .main-header__search-wrapper {
   position: relative;
   flex-grow: 1;
+  color: #fff;
 
-  &:before {
-    content: '';
+  .search-icon {
     position: absolute;
-    top: 12px; left: 17px;
-    width: 17px; height: 17px;
-    background-image: url(../img/svg/icon-search.svg);
-    background-repeat: no-repeat;
+    left: 17px; top: 12px;
+  }
+
+  .main-header__search:focus + .search-icon {
+    color: red;
   }
 }
 
@@ -240,20 +250,10 @@ textarea {
   border-radius: 0;
 }
 
-.button-bookmarks:before {
+.main-header__buttons-icon {
   position: absolute;
   left: 17px; top: 12px;
-  content: '';
-  width: 14px; height: 16px;
-  background-image: url("../img/svg/icon-bookmark.svg");
-}
-
-.button-shopcart:before {
-  position: absolute;
-  left: 18px; top: 12px;
-  content: '';
-  width: 15px; height: 15px;
-  background-image: url("../img/svg/icon-cart.svg");
+  color: #6a7180;
 }
 
 .whiteboard {
@@ -263,6 +263,7 @@ textarea {
   padding-top: 46px;
   padding-bottom: 40px;
   // height: 158px;
+  text-transform: capitalize;
   color: #000;
 
   & > * + * {
@@ -282,6 +283,7 @@ textarea {
   .header__coordinates {
 
     .our-phone {
+      position: relative;
       display: block;
       margin-bottom: 4px;
       padding: 9px 27px 9px 56px;
@@ -290,9 +292,12 @@ textarea {
       color: $color__red;
       text-align: center;
       border: 3px solid #fff;
-      background-image: url('../img/svg/icon-phone.svg');
-      background-repeat: no-repeat;
-      background-position: 13px 10px;
+
+      .icon-phone {
+        position: absolute;
+        top: 10px;
+        left: 12px;
+      }
     }
 
     .our-place {
@@ -309,36 +314,30 @@ textarea {
     flex-grow: 1;
     flex-wrap: wrap;
 
-    .button-auth {
-      padding: 14px 25px 14px;
-      background-color: #fff;
-      color: #000;
-      text-transform: none;
-
-      &:hover {
-        color: $color__red;
-      }
-
-      &:active {
-        color: rgba(0,0,0,.3);
-      }
+    .icon-auth {
+      margin-right: 14px;
+      position: relative;
+      top: 2px;
+      color: #c5c5c5;
     }
 
-    .button-sign-in {
-      position: relative;
-      padding-left: 50px;
+    // .button__white, .user-navigation__profile {
+    //   &:hover .icon-auth {
+    //     color: $color__blue;
+    //   }
+    // }
 
+    .button__white:hover .icon-auth,
+    .user-navigation__profile:hover .icon-auth,
+    .user-navigation__logout:hover .icon-auth {
+      color: $color__blue!important;
+    }
 
-      &:before {
-        position: absolute;
-        left: 14px; top: 14px;
-        content: '';
-        display: block;
-        width: 20px;
-        height: 17px;
-        background-image: url("../img/svg/icon-login.svg");
-        background-repeat: no-repeat;
-      }
+    .button__white:active .icon-auth,
+    .user-navigation__profile:active,
+    .user-navigation__profile:active .icon-auth,
+    .user-navigation__logout:active .icon-auth {
+      color: #c5c5c5!important;
     }
 
     .button + .button {
@@ -387,6 +386,10 @@ textarea {
             border-radius: 50%;
             background-color: $color__blue;
           }
+        }
+
+        &:hover a {
+          color: $color__red;
         }
       }
     }
@@ -503,7 +506,6 @@ textarea {
 
   a {
     color: $color__gold;
-    // float: left;
   }
 
   .logo {
@@ -517,16 +519,15 @@ textarea {
     margin-left: 40px;
 
     li a {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 40px; height: 40px;
       border-radius: 50%;
       background-color: $color__blue-dark_hover;
-      background-repeat: no-repeat;
-      background-position: center;
 
       &:hover, &:active {
         background-color: $color__red;
-        opacity: 1;
       }
     }
 
@@ -534,15 +535,8 @@ textarea {
       margin-left: 5px;
     }
   }
-  .social-vk a {
-    background-image: url("../img/svg/icon-vk.svg");
-  }
-  .social-fb a {
-    background-image: url("../img/svg/icon-fb.svg");
-  }
-  .social-inst a {
-    background-image: url("../img/svg/icon-insta.svg");
-  }
+
+
 }
 
 .modal__block {
@@ -589,7 +583,7 @@ textarea {
   }
 }
 
-.modal__sign-in {
+.modal__write-us {
   display: none;
   height: 385px;
   padding-top: 45px;
@@ -656,6 +650,7 @@ textarea {
   justify-content: space-between;
 
   .button {
+    position: relative;
     flex-grow: 1;
 
     + .button {

@@ -6,20 +6,36 @@
   <title>Техномарт | Главная страница</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.min.css">
+  <!-- Подключаем полифил, для отображения svg-спрайта в IE11 -->
+  <script type="text/javascript" src="js/svgforeverybody.js"></script>
+  <script type="text/javascript">
+    svg4everybody();
+  </script>
 </head>
-
 <body>
   <header class="main-header">
-    <!-- Здесь надо подумать над семантикой -->
     <nav class="main-navigation">
       <div class="navigation__row_dark">
         <div class="container">
           <span class="logo">Техномарт</span>
           <div class="main-header__search-wrapper">
             <input type="search" name="header-search" placeholder="Поиск:" class="main-header__search">
+            <svg width="17" height="17" class="search-icon">
+              <use xlink:href="img/sprite.svg#icon-search"></use>
+            </svg>
           </div>
-          <a href="bookmarks.html" class="button button-silent button-bookmarks">Закладки: 0</a>
-          <a href="shopcart.html" class="button button-silent button-shopcart">Корзина: 0</a>
+          <a href="bookmarks.html" class="button button-silent">
+            <svg width="14" height="16" class="main-header__buttons-icon">
+              <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+            </svg>
+            Закладки: 0
+          </a>
+          <a href="shopcart.html" class="button button-silent">
+            <svg width="15" height="15" class="main-header__buttons-icon">
+              <use xlink:href="img/sprite.svg#icon-cart"></use>
+            </svg>
+            Корзина: 0
+          </a>
           <a href="create-order.html" class="button button-second">Оформить заказ</a>
         </div>
       </div>
@@ -27,16 +43,25 @@
         <div class="whiteboard">
           <p class="header__tagline">Интернет-магазин<br> строительных материалов<br> и инструмента для ремонта</p>
           <p class="header__coordinates">
-            <span class="our-phone">+7 (812) 555-05-55</span>
+            <span class="our-phone">
+              <svg width="19" height="19" class="icon-phone">
+                <use xlink:href="img/sprite.svg#icon-phone"></use>
+              </svg>
+              +7 (812) 555-05-55</span>
             <span class="our-place">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
           </p>
           <div class="user-navigation">
-            <a href="sign-in.html" class="button button-auth button-sign-in">Войти</a>
-            <a href="sign-up.html" class="button button-auth">Регистрация</a>
+            <a href="sign-in.html" class="button button__white">
+              <svg width="20" height="17" class="icon-auth">
+                <use xlink:href="img/sprite.svg#icon-login"></use>
+              </svg>
+              Войти
+            </a>
+            <a href="sign-up.html" class="button button__white">Регистрация</a>
           </div>
         </div>
         <ul class="site-navigation__list">
-          <li><a href="index.html">Главная</a></li> <!-- Нужна ли тут ссылка?? -->
+          <li><a href="index.html">Главная</a></li>
           <li><a href="company.html">Компания</a></li>
           <li><a href="catalog.html">Каталог</a></li>
           <li><a href="news.html">Новости</a></li>
@@ -54,25 +79,40 @@
       <section class="promo">
         <h2 class="visually-hidden">Важные категории услуг и товаров</h2>
         <ul class="promo-categories__list">
-          <li class="item_new promo__card_materials">
+          <li class="item_new">
             <h3>Материалы</h3>
-            <a href="" class="button button__promo">На любой вкус</a>
+            <a href="materials.html" class="button button__promo">На любой вкус</a>
+            <svg width="44" height="65" class="promo-icon promo-icon-materials">
+              <use xlink:href="img/sprite.svg#icon-1"></use>
+            </svg>
           </li>
-          <li class="promo__card_tools">
+          <li>
             <h3>Инструмент</h3>
-            <a href="" class="button button__promo">На все случаи</a>
+            <a href="tools.html" class="button button__promo">На все случаи</a>
+            <svg width="75" height="61" class="promo-icon promo-icon-tools">
+              <use xlink:href="img/sprite.svg#icon-2"></use>
+            </svg>
           </li>
-          <li class="promo__card_mechanics">
+          <li>
             <h3>Техника</h3>
-            <a href="" class="button button__promo">Для стройки</a>
-          </li>
-          <li class="promo__card_sales">
+            <a href="mechanics.html" class="button button__promo">Для стройки</a>
+
+            <svg width="78" height="62" class="promo-icon promo-icon-mechs">
+              <use xlink:href="img/sprite.svg#icon-3"></use>
+            </svg></li>
+          <li>
             <h3>Скидки 50%</h3>
-            <a href="" class="button button__promo">На 350 товаров</a>
+            <a href="sales.html" class="button button__promo">На 350 товаров</a>
+            <svg width="59" height="72" class="promo-icon promo-icon-sales">
+              <use xlink:href="img/sprite.svg#icon-4"></use>
+            </svg>
           </li>
-          <li class="promo__card_delivery">
+          <li>
             <h3>Доставка</h3>
-            <a href="" class="button button__promo">Бесплатно</a>
+            <a href="delivery.html" class="button button__promo">Бесплатно</a>
+            <svg width="78" height="63" class="promo-icon promo-icon-delivery">
+              <use xlink:href="img/sprite.svg#icon-5"></use>
+            </svg>
           </li>
           <li class="slider">
             <ul class="slides">
@@ -334,9 +374,27 @@
           Все права защищены
         </p>
         <ul class="social__list">
-          <li class="social-vk"><a href="https://vk.com"></a> </li>
-          <li class="social-fb"><a href="https://facebook.com"></a> </li>
-          <li class="social-inst"><a href="https://instagram.com"></a> </li>
+          <li>
+            <a href="https://vk.com">
+              <svg width="26" height="15">
+                <use xlink:href="img/sprite.svg#icon-vk"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://vk.com">
+              <svg width="12" height="22">
+                <use xlink:href="img/sprite.svg#icon-fb"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://vk.com">
+              <svg width="21" height="21">
+                <use xlink:href="img/sprite.svg#icon-insta"></use>
+              </svg>
+            </a>
+          </li>
         </ul>
 
         <p class="feedback">
@@ -348,12 +406,13 @@
           Разработано -
           <a href="https://htmlacademy.ru/intensive/htmlcss">htmlacademy.ru</a>
         </p>
+        <!-- <img src="img/svg/icon-1.svg" alt=""> -->
+
       </div>
     </div>
-
   </footer>
 
-  <div class="modal__block modal__sign-in">
+  <div class="modal__block modal__write-us">
     <div class="modal__body">
       <form action="index.html" method="post">
         <p class="input-group">
@@ -375,6 +434,8 @@
     </div>
     <button type="button" name="button-modal-close" class="modal__close"><span class="visually-hidden">Закрыть</span></button>
   </div>
+
+
 
   <script type="text/javascript" src="js/script.js"></script>
 </body>
