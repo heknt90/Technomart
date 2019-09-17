@@ -43,6 +43,7 @@ a {
 
 .row__color_dark-blue {
   background-color: $color__blue_dark;
+  color: #fff;
 }
 
 .row__color_light-gold {
@@ -78,8 +79,7 @@ a {
   border-bottom: solid 7px $color__red_dark;
   text-transform: uppercase;
   text-align: center;
-  color: #fff;
-  vertical-align: middle;
+  background-color: $color__red;
 }
 
 .header__logo {
@@ -88,11 +88,6 @@ a {
   position: absolute;
   top: 0; bottom: -7px; left: 0;
   padding: 10px 0 8px;
-}
-
-.footer__logo {
-  font-size: 30px;
-  line-height: 30px;
 }
 
 .header-logo__container {
@@ -333,5 +328,121 @@ a {
     a {
       padding: 19px 10px 18px;
     }
+  }
+}
+
+
+
+
+
+// footer
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__logo {
+  align-self: flex-start;
+  padding: 21px 10px;
+  margin-bottom: 27px;
+  font-size: 30px!important;
+  line-height: 30px!important;
+}
+
+.footer {
+
+  .row__color_blue {
+    font-size: 18px;
+    line-height: 24px;
+
+    address {
+      font-style: normal;
+      margin-bottom: 50px;
+    }
+  }
+
+  .site-navigation__list,
+  .catalog-navigation__list {
+    margin-right: -30px;
+
+    li {
+      margin: 0 30px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:active {
+        text-decoration: none;
+        opacity: .5;
+      }
+    }
+  }
+
+  .site-navigation__list {
+    margin-bottom: 34px;
+    align-items: flex-end;
+  }
+
+  .catalog-navigation__list {
+    color: $color__gold;
+  }
+
+  .row__color_dark-blue {
+    font-size: 16px;
+    line-height: 18px;
+    padding: 37px 0 34px;
+
+    p {
+      font-family: $font__main;
+
+      a {
+        color: $color__gold;
+      }
+    }
+  }
+
+  .social__list {
+    display: flex;
+    margin-left: 40px;
+
+    li a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px; height: 40px;
+      background-color: $color__blue-dark_hover;
+      border-radius: 50%;
+
+      &:hover, &:active {
+        background-color: $color__red;
+      }
+    }
+
+    li + li {
+      margin-left: 5px;
+    }
+  }
+
+  .support {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:active {
+        text-decoration: none;
+        color: $color__red;
+      }
+    }
+  }
+
+  .feedback, .design {
+    margin-right: 14px;
   }
 }
