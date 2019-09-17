@@ -14,80 +14,97 @@
 </head>
 
 <body>
-  <header class="main-header">
-    <!-- Здесь надо подумать над семантикой -->
-    <nav class="main-navigation">
-      <div class="navigation__row_dark">
-        <div class="container">
+  <header class="header">
+    <nav>
+      <div class="row__color_blue">
+        <div class="container header-logo__container">
           <a href="index.html">
-            <span class="logo">Техномарт</span>
+            <span class="header__logo logo button__color_red">Техномарт</span>
           </a>
-          <div class="main-header__search-wrapper">
-            <input type="search" name="header-search" placeholder="Поиск:" class="main-header__search">
-            <svg width="17" height="17" class="search-icon">
+          <div class="site-search">
+            <input type="search" name="site-search" placeholder="Поиск:" class="site-search__input">
+            <svg width="17" height="17" class="site-search__icon">
               <use xlink:href="img/sprite.svg#icon-search"></use>
             </svg>
           </div>
-          <a href="bookmarks.html" class="button button-silent">
-            <svg width="14" height="16" class="main-header__buttons-icon">
-              <use xlink:href="img/sprite.svg#icon-bookmark"></use>
-            </svg>
-            Закладки: 0
-          </a>
-          <a href="shopcart.html" class="button button-silent">
-            <svg width="15" height="15" class="main-header__buttons-icon">
-              <use xlink:href="img/sprite.svg#icon-cart"></use>
-            </svg>
-            Корзина: 0
-          </a>
-          <a href="create-order.html" class="button button-second">Оформить заказ</a>
+          <ul class="shoping-navigation__list">
+            <li><a href="bookmarks.html" class="button button__color_blue">
+              <svg width="14" height="16" class="button__icon">
+                <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+              </svg>
+              Закладки: 0
+            </a></li>
+            <li><a href="shopcart.html" class="button button__color_blue button__highlight_red">
+              <svg width="15" height="15" class="button__icon">
+                <use xlink:href="img/sprite.svg#icon-cart"></use>
+              </svg>
+              Корзина: 10
+            </a></li>
+            <li><a href="form-order.html" class="button button__color_green">Оформить заказ</a></li>
+          </ul>
+
         </div>
       </div>
-      <div class="container">
-        <div class="whiteboard">
-          <p class="header__tagline">Интернет-магазин<br> строительных материалов<br> и инструмента для ремонта</p>
-          <p class="header__coordinates">
-            <span class="our-phone">
-              <svg width="19" height="19" class="icon-phone">
-                <use xlink:href="img/sprite.svg#icon-phone"></use>
-              </svg>
-              +7 (812) 555-05-55
-            </span>
-            <span class="our-place">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
-          </p>
-          <div class="user-navigation">
-            <div class="user-authentification">
-              <a href="profile.html" class="user-navigation__profile">
-                <svg width="20" height="18" class="icon-auth">
-                  <use xlink:href="img/sprite.svg#icon-user"></use>
-                </svg>
-                <h4>Равшан Джамшутович</h4>
-              </a>
-              <a href="logout.html" class="user-navigation__logout">
-                <svg width="21" height="17" class="icon-auth">
-                  <use xlink:href="img/sprite.svg#icon-logout"></use>
-                </svg>
-              </a>
+
+      <div class="row__color_gray">
+        <div class="container">
+          <div class="header__middle-container">
+            <!-- hcard разметка с контактными данными интернет-магазина -->
+            <div class="vcard">
+              <div>
+                <span class="fn org visually-hidden">Техномарт</span>
+                <span class="category">Интернет-магазин<br> строительных материалов<br> и инструмента для ремонта</span>
+              </div>
+              <div class="adr">
+                <span class="tel">+7 (812) 555-05-55</span>
+                <span class="locality">г. Санкт-Петербург</span>
+                <span class="street-address">ул. Б. Конюшенная, д. 19/8</span>
+              </div>
             </div>
-            <ul class="user-navigation__list">
-              <li><a href="my-orders.html">Мои заказы</a></li>
-              <li><a href="profile.html">Личный кабинет</a></li>
-            </ul>
+
+            <div class="user-navigation">
+              <!-- <a href="sign-in.html" class="button button__auth button__sign-in">
+                <svg width="20" height="17" class="button__icon">
+                  <use xlink:href="img/sprite.svg#icon-login"></use>
+                </svg>
+                Войти
+              </a>
+              <a href="sign-up.html" class="button button__auth">Регистрация</a> -->
+
+              <div class="user-authentification">
+                <a href="profile.html" class="button button__auth">
+                  <svg width="20" height="18" class="icon-auth">
+                    <use xlink:href="img/sprite.svg#icon-user"></use>
+                  </svg>
+                  <h4>Равшан Джамшутович</h4>
+                </a>
+                <a href="logout.html" class="button button__auth">
+                  <svg width="21" height="17" class="icon-auth">
+                    <use xlink:href="img/sprite.svg#icon-logout"></use>
+                  </svg>
+                </a>
+              </div>
+              <ul class="user-navigation__list">
+                <li><a href="my-orders.html">Мои заказы</a></li>
+                <li><a href="profile.html">Личный кабинет</a></li>
+              </ul>
+
+            </div>
           </div>
+
+          <ul class="site-navigation__list">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="company.html">Компания</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="spec-offers.html">Спецпредложения</a></li>
+            <li><a href="delivery.html">Доставка</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
         </div>
-        <ul class="site-navigation__list">
-          <li><a href="index.html">Главная</a></li> <!-- Нужна ли тут ссылка?? -->
-          <li><a href="company.html">Компания</a></li>
-          <li><a href="catalog.html">Каталог</a></li>
-          <li><a href="news.html">Новости</a></li>
-          <li><a href="spec-offers.html">Спецпредложения</a></li>
-          <li><a href="delivery.html">Доставка</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
-        </ul>
       </div>
     </nav>
   </header>
-
   <main>
     <div class="container">
       <ul class="breadcrumbs">
