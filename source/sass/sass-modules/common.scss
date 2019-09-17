@@ -464,6 +464,10 @@ textarea {
     justify-content: space-between;
   }
 
+  .site-navigation, .catalog-navigation {
+    margin-right: -30px;
+  }
+
   .footer__wrap:nth-of-type(2) {
     margin-top: 27px;
     margin-bottom: 50px;
