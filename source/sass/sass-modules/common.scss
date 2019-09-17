@@ -139,6 +139,9 @@ a {
   padding: 10px 10px 12px 50px;
 }
 
+.header .row__color_gray .container {
+  padding-bottom: 1px;
+}
 
 .shoping-navigation__list .button__color_green {
   padding-left: 10px;
@@ -222,17 +225,21 @@ a {
 
   .user-navigation {
     display: flex;
+    width: 300px;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
-
 
   .button__auth {
     padding: 12px 10px;
+    min-width: 47px;
+    min-height: 47px;
     font-size: 21px;
     line-height: 21px;
     text-transform: capitalize;
     background-color: #fff;
     color: #000;
+    // border: 1px solid red;
 
     .button__icon {
       left: 14px;
@@ -261,8 +268,57 @@ a {
     padding-left: 50px;
   }
 
+  .button__profile {
+    // padding-left: ;
+    flex-grow: 1;
+    padding-left: 40px;
+
+    &:hover {
+      color: #000;
+    }
+
+    + .button__auth {
+      margin: 0!important;
+
+    }
+  }
+
   .button + .button {
     margin-left: 20px;
+  }
+}
+
+.header .user-navigation__list {
+  width:100%;
+  display: flex;
+  margin-top: 7px;
+  font-size: 16px;
+
+  li {
+    position: relative;
+    margin: 0 17px;
+    color: $color__blue;
+
+    a {
+      text-decoration: underline;
+    }
+
+    + li:before {
+      position: absolute;
+      left: -19px; top: 7px;
+      content: "";
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background-color: $color__blue;
+    }
+
+    &:hover {
+      color: $color__red;
+    }
+
+    &:active {
+      color: rgba($color__blue, .3);
+    }
   }
 }
 
