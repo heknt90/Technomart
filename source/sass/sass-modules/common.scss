@@ -82,12 +82,14 @@ a {
   background-color: $color__red;
 }
 
+
+// >>header
 .header__logo {
   font-size: 24px!important;
   line-height: 24px!important;
   position: absolute;
   top: 0; bottom: -7px; left: 0;
-  padding: 10px 0 8px;
+  padding: 10px 0 8px!important;
 }
 
 .header-logo__container {
@@ -234,7 +236,6 @@ a {
     text-transform: capitalize;
     background-color: #fff;
     color: #000;
-    // border: 1px solid red;
 
     .button__icon {
       left: 14px;
@@ -330,12 +331,12 @@ a {
     }
   }
 }
+// header<<
 
 
 
 
-
-// footer
+// >>footer
 .footer .container {
   display: flex;
   justify-content: space-between;
@@ -343,7 +344,7 @@ a {
 
 .footer__logo {
   align-self: flex-start;
-  padding: 21px 10px;
+  padding: 21px 10px!important;
   margin-bottom: 27px;
   font-size: 30px!important;
   line-height: 30px!important;

@@ -54,20 +54,23 @@
 }
 
 .button__color_transparent {
-  color: rgba(0,0,0,.1);
+  background-color: rgba(0,0,0,.1);
+  width: 135px;
+  padding: 10px;
 
   &:hover {
-    color: rgba(0,0,0,.2);
+    background-color: rgba(0,0,0,.2);
   }
 
   &:active {
-    color: rgba(0,0,0,.3);
+    background-color: rgba(0,0,0,.3);
   }
 }
 
 .button__color_red,
 .button__highlight_red,
 a .logo {
+  padding: 12px 20px;
   font-size: 14px;
   line-height: 18px;
   background-color: $color__red;
