@@ -80,7 +80,7 @@
 .button__color_red,
 .button__highlight_red,
 a .logo {
-  padding: 12px 20px;
+  padding: 10px 20px;
   font-size: 14px;
   line-height: 18px;
   background-color: $color__red;
@@ -102,4 +102,8 @@ a .logo {
 input {
   font-size: inherit;
   line-height: inherit;
+}
+
+textarea {
+  height: 110px;
 }
