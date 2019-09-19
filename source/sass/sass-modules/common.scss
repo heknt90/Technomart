@@ -7,11 +7,16 @@ body {
 
 h1, h2, h3, h4, p, ul {
   margin: 0;
+
+  + p {
+    margin-top: 32px;
+  }
 }
 
 h1, h2 {
   font-size: 30px;
   line-height: 30px;
+  text-transform: uppercase;
 }
 
 p {
@@ -333,8 +338,150 @@ a {
 }
 // header<<
 
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  margin: 20px 0;
+  background-color: $color__gold_light;
+  color: $color__blue;
+  // text-transform: uppercase;
 
+  .button {
+    width: 250px;
+  }
+}
 
+.products__list, .manufactures__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -20px;
+  margin-bottom: -20px;
+  width: 960px;
+  margin-left: -10px;
+  margin-right: -10px;
+
+  li {
+    width: 218px;
+    margin: 20px 10px;
+    border: 1px solid #eaeaea;
+
+    &:hover {
+      box-shadow: $shadow__item;
+    }
+  }
+}
+
+.products__list {
+
+  li {
+    position: relative;
+    height: 316px;
+    text-align: center;
+
+    .button {
+      display: none;
+    }
+
+    .product__cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 175px;
+      margin-bottom: 6px;
+    }
+
+    .product__title,
+    .product__price,
+    .product__price_old {
+      font-family: $font__alternative;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .product__title {
+      display: flex;
+      flex-direction: column;
+      line-height: 20px;
+      margin: 6px 10px 11px;
+    }
+
+    .product__price_old,
+    .product__price {
+      line-height: 18px;
+    }
+
+    .product__price_old {
+      color: #a9a9a9;
+      text-decoration: line-through;
+    }
+
+    .product__price {
+      position: absolute;
+      bottom: 20px;
+      left: 42px;
+      display: block;
+      width: 122px;
+      height: 38px;
+      box-sizing: border-box;
+      margin-right: 19px;
+      padding: 10px 0;
+      color: #fff;
+      border-radius: 3px 0 0 3px;
+      background-color: $color__red;
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: -38px;
+        top: 0;
+        border: 19px solid transparent;
+        border-left: 19px solid $color__red;
+      }
+    }
+
+    &:hover {
+
+      img {
+        display: none;
+      }
+
+      .button {
+        display: block;
+        width: 135px;
+        padding: 10px;
+        text-transform: uppercase; //здесь нужно будет перепроверить на повторяемость
+
+        + .button {
+          margin-top: 7px;
+        }
+      }
+    }
+  }
+}
+
+.popular-manufactures {
+  margin-bottom: 85px;
+}
+
+.manufactures__list {
+
+  li {
+    height: 140px;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      display: block;
+    }
+  }
+}
 
 // >>footer
 .footer .container {

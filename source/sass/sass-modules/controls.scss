@@ -46,11 +46,21 @@
 
   &:active {
     background-color: $color__green_active;
+    box-shadow: 0 3px 0 $color__green_active;
   }
 }
 
 .button__bordered_green {
+  border: 3px solid $color__green;
+  color: $color__blue;
 
+  &:hover {
+    border-color: $color__blue;
+  }
+
+  &:active {
+    opacity: .3;
+  }
 }
 
 .button__color_transparent {
