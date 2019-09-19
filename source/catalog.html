@@ -34,7 +34,7 @@
               </svg>
               Закладки: 0
             </a></li>
-            <li><a href="shopcart.html" class="button button__color_blue button__highlight_red">
+            <li><a href="shopcart.html" class="button button__color_blue button__highlight_red button__shopcart">
               <svg width="15" height="15" class="button__icon">
                 <use xlink:href="img/sprite.svg#icon-cart"></use>
               </svg>
@@ -63,16 +63,6 @@
             </div>
 
             <div class="user-navigation">
-              <!-- <a href="sign-in.html" class="button button__auth button__sign-in">
-                <svg width="20" height="17" class="button__icon">
-                  <use xlink:href="img/sprite.svg#icon-login"></use>
-                </svg>
-                Войти
-              </a>
-              <a href="sign-up.html" class="button button__auth">Регистрация</a> -->
-
-              <!-- <div class="user-authentification"> -->
-
                 <a href="profile.html" class="button button__auth button__profile">
                   <svg width="20" height="18" class="button__icon">
                     <use xlink:href="img/sprite.svg#icon-user"></use>
@@ -121,62 +111,64 @@
       <h1 class="inner__main-header">Перфораторы</h1>
       <div class="results__wrap">
         <aside class="filters">
-          <header>
-            <h2>Фильтр:</h2>
-          </header>
-          <fieldset>
-            <h3>Цена:</h3>
-            <div class="price-range__wrap">
-              <div class="price-range__context">
-                <div class="price-range__selected">
-                  <span class="price-range__handler price-range__handler_min"></span>
-                  <span class="price-range__handler price-range__handler_max"></span>
+          <form action="https://echo.htmlacademy.ru/" method="get">
+            <header>
+              <h2>Фильтр:</h2>
+            </header>
+            <fieldset>
+              <h3>Цена:</h3>
+              <div class="price-range__wrap">
+                <div class="price-range__context">
+                  <div class="price-range__selected">
+                    <span class="price-range__handler price-range__handler_min"></span>
+                    <span class="price-range__handler price-range__handler_max"></span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <p class="price-range__input-group">
-              <input type="number" name="price-range__input_min" value="0" class="price-range__input">
-              -
-              <input type="number" name="price-range__input_max" value="30000" class="price-range__input">
-            </p>
-          </fieldset>
-          <fieldset>
-            <h3>Производители:</h3>
-            <p class="input-group">
-              <input checked="checked" id='produced-by-bosch' type="checkbox" name="produced-by" value="bosch" class="visually-hidden">
-              <label for="produced-by-bosch">Bosch</label>
-            </p>
-            <p class="input-group">
-              <input id="produced-by-interskol" type="checkbox" name="produced-by" value="interskol" class="visually-hidden">
-              <label for="produced-by-interskol">Интерскол</label>
-            </p>
-            <p class="input-group">
-              <input checked="checked" id="produced-by-makita" type="checkbox" name="produced-by" value="makita" class="visually-hidden">
-              <label for="produced-by-makita">Makita</label>
-            </p>
-            <p class="input-group">
-              <input id="produced-by-dewalt" type="checkbox" name="produced-by" value="dewalt" class="visually-hidden">
-              <label for="produced-by-dewalt">DeWalt</label>
-            </p>
-            <p class="input-group">
-              <input id="produced-by-hitachi" type="checkbox" name="produced-by" value="hitachi" class="visually-hidden">
-              <label for="produced-by-hitachi">Hitachi</label>
-            </p>
-          </fieldset>
-          <fieldset>
-            <h3>Питание:</h3>
-            <p class="input-group">
-              <input checked="checked" id="power-type-dc" type="radio" name="power-type" value="dc" class="visually-hidden">
-              <label for="power-type-dc">Аккумуляторные</label>
-            </p>
-            <p class="input-group">
-              <input id="power-type-ac" type="radio" name="power-type" value="ac" class="visually-hidden">
-              <label for="power-type-ac">Сетевые</label>
-            </p>
-          </fieldset>
+              <p class="price-range__input-group">
+                <input type="number" name="price-range__input_min" value="0" class="price-range__input">
+                -
+                <input type="number" name="price-range__input_max" value="30000" class="price-range__input">
+              </p>
+            </fieldset>
+            <fieldset>
+              <h3>Производители:</h3>
+              <p class="input-group">
+                <input checked="checked" id='produced-by-bosch' type="checkbox" name="produced-by" value="bosch" class="visually-hidden">
+                <label for="produced-by-bosch">Bosch</label>
+              </p>
+              <p class="input-group">
+                <input id="produced-by-interskol" type="checkbox" name="produced-by" value="interskol" class="visually-hidden">
+                <label for="produced-by-interskol">Интерскол</label>
+              </p>
+              <p class="input-group">
+                <input checked="checked" id="produced-by-makita" type="checkbox" name="produced-by" value="makita" class="visually-hidden">
+                <label for="produced-by-makita">Makita</label>
+              </p>
+              <p class="input-group">
+                <input id="produced-by-dewalt" type="checkbox" name="produced-by" value="dewalt" class="visually-hidden">
+                <label for="produced-by-dewalt">DeWalt</label>
+              </p>
+              <p class="input-group">
+                <input id="produced-by-hitachi" type="checkbox" name="produced-by" value="hitachi" class="visually-hidden">
+                <label for="produced-by-hitachi">Hitachi</label>
+              </p>
+            </fieldset>
+            <fieldset>
+              <h3>Питание:</h3>
+              <p class="input-group">
+                <input checked="checked" id="power-type-network" type="radio" name="power-type" value="network" class="visually-hidden">
+                <label for="power-type-network">Аккумуляторные</label>
+              </p>
+              <p class="input-group">
+                <input id="power-type-battery" type="radio" name="power-type" value="battery" class="visually-hidden">
+                <label for="power-type-battery">Сетевые</label>
+              </p>
+            </fieldset>
 
-          <button type="submit" name="button" class="button button__color_white button__submit">Показать</button>
+            <button type="submit" name="filters-submit" class="button button__color_white button__submit">Показать</button>
+          </form>
         </aside>
 
         <div class="results">
@@ -217,7 +209,7 @@
             <li>
               <div class="product__cover">
                 <img src="img/snippet-2_184_164.jpg" width="127" height="112" alt="Перфоратор BOSCH BFG 3000">
-                <a href="shop-cart.html" class="button button__color_green">
+                <a href="shop-cart.html" class="button button__color_green button__buy">
                   <svg width="15" height="15" class="button__icon">
                     <use xlink:href="img/sprite.svg#icon-cart"></use>
                   </svg>
@@ -234,7 +226,7 @@
             <li>
               <div class="product__cover">
                 <img src="img/snippet-3_144_128.jpg" width="144" height="128" alt="Перфоратор BOSCH BFG 6000">
-                <a href="shop-cart.html" class="button button__color_green">
+                <a href="shop-cart.html" class="button button__color_green button__buy">
                   <svg width="15" height="15" class="button__icon">
                     <use xlink:href="img/sprite.svg#icon-cart"></use>
                   </svg>
@@ -251,7 +243,7 @@
             <li class="item_new">
               <div class="product__cover">
                 <img src="img/snippet-4_127_112.jpg" width="127" height="112" alt="Перфоратор BOSCH BFG 2000">
-                <a href="shop-cart.html" class="button button__color_green">
+                <a href="shop-cart.html" class="button button__color_green button__buy">
                   <svg width="15" height="15" class="button__icon">
                     <use xlink:href="img/sprite.svg#icon-cart"></use>
                   </svg>
@@ -267,7 +259,7 @@
             <li>
               <div class="product__cover">
                 <img src="img/snippet-2_184_164.jpg" width="127" height="112" alt="Перфоратор BOSCH BFG 3000">
-                <a href="shop-cart.html" class="button button__color_green">
+                <a href="shop-cart.html" class="button button__color_green button__buy">
                   <svg width="15" height="15" class="button__icon">
                     <use xlink:href="img/sprite.svg#icon-cart"></use>
                   </svg>
@@ -284,7 +276,7 @@
             <li class="item_new">
               <div class="product__cover">
                 <img src="img/snippet-3_144_128.jpg" width="144" height="128" alt="Перфоратор BOSCH BFG 6000">
-                <a href="shop-cart.html" class="button button__color_green">
+                <a href="shop-cart.html" class="button button__color_green button__buy">
                   <svg width="15" height="15" class="button__icon">
                     <use xlink:href="img/sprite.svg#icon-cart"></use>
                   </svg>
@@ -301,7 +293,7 @@
             <li>
               <div class="product__cover">
                 <img src="img/snippet-4_127_112.jpg" width="127" height="112" alt="Перфоратор BOSCH BFG 2000">
-                <a href="shop-cart.html" class="button button__color_green">
+                <a href="shop-cart.html" class="button button__color_green button__buy">
                   <svg width="15" height="15" class="button__icon">
                     <use xlink:href="img/sprite.svg#icon-cart"></use>
                   </svg>
@@ -317,7 +309,7 @@
             <li class="item_new">
               <div class="product__cover">
                 <img src="img/snippet-2_184_164.jpg" width="127" height="112" alt="Перфоратор BOSCH BFG 3000">
-                <a href="shop-cart.html" class="button button__color_green">
+                <a href="shop-cart.html" class="button button__color_green button__buy">
                   <svg width="15" height="15" class="button__icon">
                     <use xlink:href="img/sprite.svg#icon-cart"></use>
                   </svg>
@@ -334,7 +326,7 @@
             <li>
               <div class="product__cover">
                 <img src="img/snippet-3_144_128.jpg" width="144" height="128" alt="Перфоратор BOSCH BFG 6000">
-                <a href="shop-cart.html" class="button button__color_green">
+                <a href="shop-cart.html" class="button button__color_green button__buy">
                   <svg width="15" height="15" class="button__icon">
                     <use xlink:href="img/sprite.svg#icon-cart"></use>
                   </svg>
@@ -351,7 +343,7 @@
             <li>
               <div class="product__cover">
                 <img src="img/snippet-4_127_112.jpg" width="127" height="112" alt="Перфоратор BOSCH BFG 2000">
-                <a href="shop-cart.html" class="button button__color_green">
+                <a href="shop-cart.html" class="button button__color_green button__buy">
                   <svg width="15" height="15" class="button__icon">
                     <use xlink:href="img/sprite.svg#icon-cart"></use>
                   </svg>
@@ -491,7 +483,7 @@
     </div>
     <div class="modal__footer">
       <a href="order.html" class="button button__color_red">Оформить заказ</a>
-      <button type="button" name="button-buy-continue" class="button button__color_white">Продолжнить покупки</button>
+      <button type="button" name="button-buy-continue" class="button button__color_white">Продолжить покупки</button>
     </div>
     <button type="button" name="button-modal-close" class="modal__close"><span class="visually-hidden">Закрыть</span></button>
   </div>
