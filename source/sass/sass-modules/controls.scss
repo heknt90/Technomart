@@ -6,6 +6,8 @@
   text-transform: uppercase;
   text-align: center;
   box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
 }
 
 .button__color_red,
@@ -31,8 +33,18 @@
 }
 
 .button__color_white {
+  padding: 10px 20px;
   background-color: #fff;
   color: #000;
+  border:1px solid #e5e5e5;
+
+  &:hover {
+    border-color: #bdc6ca;
+  }
+
+  &:active {
+    border-color: $color__red;
+  }
 }
 
 .button__color_green {
@@ -106,4 +118,13 @@ input {
 
 textarea {
   height: 110px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+}
+input[type=number]{
+  appearance: textfield;
 }

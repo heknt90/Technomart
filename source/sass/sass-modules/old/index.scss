@@ -354,22 +354,8 @@
     }
   }
 
-  .info , .contacts {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
 
-  .info {
-    width: 540px;
-    margin: 0 10px;
-
-    .button {
-      width: 220px;
-    }
-  }
-
-  .contacts {
+  .our-contacts {
     width: 300px;
     margin: 0 10px;
 

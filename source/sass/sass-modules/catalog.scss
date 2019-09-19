@@ -1,0 +1,266 @@
+.results__wrap {
+  display: flex;
+  justify-content: space-between;
+
+  .filters {
+    width: 220px;
+  }
+
+  .results {
+    width: 700px;
+  }
+}
+
+.filters {
+  text-transform: uppercase;
+
+  header {
+    background-color: $color__gold_light;
+    padding: 10px 20px;
+    h2 {
+      font-size: 14px;
+    }
+  }
+
+  .input-group + .input-group {
+    margin-top: 20px;
+  }
+
+  fieldset {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    border: none;
+    margin-bottom: 25px;
+
+    &:first-of-type {
+      margin-top: 11px;
+    }
+
+    + fieldset {
+      border-top: 1px solid #e5e5e5;
+      padding-top: 20px;
+    }
+  }
+
+  h3 {
+    margin-bottom: 20px;
+    font-family: $font__alternative;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .price-range__wrap {
+    padding: 39px 20px;
+    margin-bottom: 9px;
+    background-color: $color__gold_light;
+
+    .price-range__context {
+      height: 2px;
+      width: 100%;
+      background-color: #d7dcde;
+    }
+
+    .price-range__selected {
+      position: relative;
+      width: 144px;
+      height: 100%;
+      background-color: #00ca74;
+
+      .price-range__handler {
+        position: absolute;
+        top: -9px;
+        display: block;
+        width: 4px; height: 4px;
+        background-color: #ababab;
+        border: 8px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 1px 1px rgba(0,0,0,.3);
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .price-range__handler_min {
+        left: -8px;
+      }
+
+      .price-range__handler_max {
+        right: -8px;
+      }
+    }
+  }
+
+  .price-range__input-group {
+    display: flex;
+    justify-content: space-between;
+
+    .price-range__input {
+      width: 95px;
+      border: none;
+      box-sizing: border-box;
+      background-color: $color__gold_light;
+      padding: 9px 22px;
+
+      font-size: 17px;
+    }
+  }
+
+  label {
+    position: relative;
+    display: block;
+    margin-left: 35px;
+
+    &:hover:before {
+      border-color: #b5b5b5;
+    }
+
+    &:active {
+      opacity: 0.4;
+    }
+  }
+
+  label:before {
+    position: absolute;
+    left: -35px;
+    top: -3px;
+    content: '';
+    display: block;
+    width: 23px;
+    height: 23px;
+    border: 2px solid #c5c5c5;
+    border-radius: 2px;
+    box-sizing: border-box;
+  }
+
+  input[type="checkbox"] {
+
+    &:checked + label:before {
+      content: url('../img/svg/checkbox-on.svg');
+      border: none;
+      color: #c5c5c5;
+    }
+  }
+
+  input[type="radio"] {
+
+    + label:before {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border-width: 4px;
+      left: -36px;
+    }
+
+    &:checked {
+
+      + label:after {
+        content: '';
+        width: 9px;
+        height: 9px;
+        background-color: #c5c5c5;
+        border-radius: 50%;
+        position: absolute;
+        left: -28px;
+        top: 5px;
+      }
+    }
+  }
+
+  .button__submit {
+    width: 140px;
+  }
+}
+
+.sortables, .sort-order-type__list, .sort-order-direction__list {
+  display: flex;
+}
+
+.sortables {
+  background-color: $color__gold_light;
+  justify-content: space-between;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-family: $font__alternative;
+  margin-bottom: 20px;
+
+  h3 {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: normal;
+  }
+}
+
+.sort-order-type__list {
+  color: rgba(0,0,0,.3);
+
+  input[type="radio"]:checked + label {
+    border: none;
+    color: $color__red;
+  }
+
+  li label{
+    border-bottom: dotted 1px $color__red;
+
+    &:hover {
+      color: #000;
+      border-bottom-style: solid;
+    }
+  }
+
+  li +  li {
+    margin-left: 70px;
+  }
+}
+
+.sort-order-direction__list {
+
+  li + li {
+    margin-left: 20px;
+  }
+
+  .order-indicator {
+    display: block;
+    position: relative;
+    width: 1px; height: 0;
+    border: 5px solid transparent;
+    border-bottom: 10px solid #c5c5c5;
+  }
+
+  input[type="radio"]:checked + .order-indicator {
+    border-bottom-color: $color__red;
+  }
+}
+
+#sort-order-direction__reverse + .order-indicator {
+  transform: rotate(180deg);
+  top: 5px;
+}
+
+.pagination {
+  margin: 52px 0 60px;
+
+  .button__next-page {
+    width: 142px;
+  }
+}
+
+.pages__list li {
+  margin-right: 10px;
+}
+
+.pagination, .pages__list {
+  display: flex;
+
+  .current-page {
+    border-color: $color__red;
+    background-color: $color__red;
+    color: #fff;
+  }
+}
+
+.about-product {
+  padding: 64px 0 68px;
+}

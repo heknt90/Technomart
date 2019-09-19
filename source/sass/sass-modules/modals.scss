@@ -2,6 +2,7 @@
 .modal__write-us,
 .modal__buying {
   display: none;
+  box-shadow: $shadow__item;
 }
 
 .modal__block {
@@ -65,6 +66,17 @@
 
   &:after {
     transform: rotate(-45deg);
+  }
+}
+
+.modal__map {
+  position: absolute;
+  // display: block;
+  left: -640px;
+  top: -40px;
+
+  img {
+    display: block;
   }
 }
 
