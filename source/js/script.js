@@ -25,17 +25,20 @@ slider.indicators[0].classList.add('slider__indicator_active');
 for (var i = 0; i < slider.slides.length; i++) {
   slider.indicators[i].addEventListener('click', function() {
     goToSlide(Number(this.dataset.slideNumber));
+    pauseSlideShow();
   });
 }
 
 slider.scrollLeft.addEventListener('click', function() {
   prevSlide();
+  pauseSlideShow();
 });
 slider.scrollRight.addEventListener('click', function() {
   nextSlide();
+  pauseSlideShow();
 });
 
-var slideShow = setInterval(nextSlide, 4000);
+var startSlideShow = setInterval(nextSlide, 4000);
 
 function goToSlide(n) {
   slider.slides[slider.currentSlide].className = 'slide';
@@ -53,7 +56,9 @@ function prevSlide() {
   goToSlide(slider.currentSlide - 1);
 }
 
-
+function pauseSlideShow() {
+  clearInterval(startSlideShow);
+}
 
 
 var buttons__buy = document.querySelectorAll('.button__buy');
