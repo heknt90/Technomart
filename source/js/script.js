@@ -7,6 +7,55 @@ var modal = {
   close: document.querySelectorAll('.modal__close')
 }
 
+var slider = {
+  slides: document.querySelectorAll(".slides .slide"),
+  indicators__list: document.querySelector(".sliders-indicators__list"),
+  indicators: '',
+  scrollLeft: document.querySelector(".slider__button-previous"),
+  scrollRight: document.querySelector(".slider__button-next"),
+  currentSlide: 0,
+  playing: true
+}
+
+for (var i = 0; i < slider.slides.length; i++) {
+  slider.indicators__list.innerHTML = slider.indicators__list.innerHTML + '<li><button type="button" name="slider-indicator" class="slider__indicator" data-slide-number="' + i + '"><span class="visually-hidden">Слайд ' + (i + 1) + '</span></button></li>';
+}
+slider.indicators = document.querySelectorAll(".sliders-indicators__list .slider__indicator");
+slider.indicators[0].classList.add('slider__indicator_active');
+for (var i = 0; i < slider.slides.length; i++) {
+  slider.indicators[i].addEventListener('click', function() {
+    goToSlide(Number(this.dataset.slideNumber));
+  });
+}
+
+slider.scrollLeft.addEventListener('click', function() {
+  prevSlide();
+});
+slider.scrollRight.addEventListener('click', function() {
+  nextSlide();
+});
+
+var slideShow = setInterval(nextSlide, 4000);
+
+function goToSlide(n) {
+  slider.slides[slider.currentSlide].className = 'slide';
+  slider.indicators[slider.currentSlide].className = 'slider__indicator'
+  slider.currentSlide = (n + slider.slides.length) % slider.slides.length;
+  slider.slides[slider.currentSlide].classList.add('slide_visible');
+  slider.indicators[slider.currentSlide].classList.add('slider__indicator_active');
+}
+
+function nextSlide() {
+  goToSlide(slider.currentSlide + 1);
+}
+
+function prevSlide() {
+  goToSlide(slider.currentSlide - 1);
+}
+
+
+
+
 var buttons__buy = document.querySelectorAll('.button__buy');
 var button__shopcart = document.querySelector('.button__shopcart');
 

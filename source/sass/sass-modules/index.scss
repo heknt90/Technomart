@@ -1,4 +1,6 @@
-
+.slides {
+  overflow: hidden;
+}
 
 .popular-manufactures {
   margin-bottom: 85px;
@@ -116,9 +118,9 @@
     &:before {
       position: absolute;
       left: -36px;
-      top: 9px;
+      top: 8px;
       content: "";
-      width: 11px; height: 2px;
+      width: 25px; height: 2px;
       background-color: $color__red;
     }
   }
