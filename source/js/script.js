@@ -1,11 +1,6 @@
 'use strict'
 
-var modal = {
-  map: document.querySelector('.modal__map'),
-  writeUs: document.querySelector('.modal__write-us'),
-  buying: document.querySelector('.modal__buying'),
-  close: document.querySelectorAll('.modal__close')
-}
+//  >> Слайдер
 
 var slider = {
   slides: document.querySelectorAll(".slides .slide"),
@@ -17,28 +12,30 @@ var slider = {
   playing: true
 }
 
-for (var i = 0; i < slider.slides.length; i++) {
+if (slider.slides.length) {
+ for (var i = 0; i < slider.slides.length; i++) {
   slider.indicators__list.innerHTML = slider.indicators__list.innerHTML + '<li><button type="button" name="slider-indicator" class="slider__indicator" data-slide-number="' + i + '"><span class="visually-hidden">Слайд ' + (i + 1) + '</span></button></li>';
-}
-slider.indicators = document.querySelectorAll(".sliders-indicators__list .slider__indicator");
-slider.indicators[0].classList.add('slider__indicator_active');
-for (var i = 0; i < slider.slides.length; i++) {
-  slider.indicators[i].addEventListener('click', function() {
-    goToSlide(Number(this.dataset.slideNumber));
+  }
+  slider.indicators = document.querySelectorAll(".sliders-indicators__list .slider__indicator");
+  slider.indicators[0].classList.add('slider__indicator_active');
+  for (var i = 0; i < slider.slides.length; i++) {
+    slider.indicators[i].addEventListener('click', function() {
+      goToSlide(Number(this.dataset.slideNumber));
+      pauseSlideShow();
+    });
+  } 
+
+  slider.scrollLeft.addEventListener('click', function() {
+    prevSlide();
     pauseSlideShow();
   });
+  slider.scrollRight.addEventListener('click', function() {
+    nextSlide();
+    pauseSlideShow();
+  });
+
+  var startSlideShow = setInterval(nextSlide, 4000);  
 }
-
-slider.scrollLeft.addEventListener('click', function() {
-  prevSlide();
-  pauseSlideShow();
-});
-slider.scrollRight.addEventListener('click', function() {
-  nextSlide();
-  pauseSlideShow();
-});
-
-var startSlideShow = setInterval(nextSlide, 4000);
 
 function goToSlide(n) {
   slider.slides[slider.currentSlide].className = 'slide';
@@ -60,6 +57,18 @@ function pauseSlideShow() {
   clearInterval(startSlideShow);
 }
 
+//  Слайдер << 
+
+///////////////////////////
+
+//  >> Модалки 
+
+var modal = {
+  map: document.querySelector('.modal__map'),
+  writeUs: document.querySelector('.modal__write-us'),
+  buying: document.querySelector('.modal__buying'),
+  close: document.querySelectorAll('.modal__close')
+}
 
 var buttons__buy = document.querySelectorAll('.button__buy');
 var button__shopcart = document.querySelector('.button__shopcart');
@@ -118,3 +127,94 @@ if (modal.close) {
     modal.close[i].addEventListener('click', hideAllPopups, false);
   }
 }
+
+//  Модалки << 
+
+////////////////////////////////////////
+
+//  >> Ползунки
+
+var range = {
+  minValue: 0,
+  maxValue: 50000,
+  container: {
+    elem: document.querySelector('.price-range__context'),
+    getCoords: function() {
+      return getCoords(this.elem);
+    }
+  },
+  select: document.querySelector('.price-range__selected'),
+  thumb: {
+    min:  document.querySelector('.price-range__handler_min'),
+    max: document.querySelector('.price-range__handler_max')
+  },
+  input: {
+    min: document.querySelector('.price-range__input-min'),
+    max: document.querySelector('.price-range__input-max')
+  },
+  min: function() {
+    return parseInt(getComputedStyle(this.select).left) 
+  },
+  max: function() {
+    return parseInt(getComputedStyle(this.select).right) 
+  },
+}
+
+var distance = range.maxValue - range.minValue;
+var rangeWidth = range.container.elem.offsetWidth;
+
+range.thumb.min.onmousedown = function(e) {
+  var coords = getCoords(range.thumb.min);
+  var shiftX = e.pageX - coords.left;
+  
+  document.onmousemove = function(e) {
+    var newLeft = e.pageX - shiftX - range.container.getCoords().left;
+    
+    //если вне слайдера
+    if (newLeft < 0) {
+        newLeft = 0;
+    }
+
+    if (newLeft > range.max() - range.thumb.min.offsetWidth / 2) {
+        newLeft = range.max() - range.thumb.min.offsetWidth / 2;
+    }
+
+    range.min = newLeft;
+    range.select.style.left = newLeft + 'px';
+    
+    range.input.min.value = Math.floor(distance * newLeft / rangeWidth);
+  }
+  
+  document.onmouseup = function() {
+    document.onmousemove = document.onmouseup = null;
+  }
+  
+}
+
+range.input.min.onchange = function(e) {
+  console.log(e.defaultValue);
+  if (e.target.value > range.maxValue || e.target.value < range.minValue) {
+    e.preventDefault();
+//    console.log('Недопустимое значение!')
+  }
+  var newValue = parseInt(e.target.value, 10);
+  console.log(newValue);
+}
+
+range.thumb.min.ondragstart = function () {
+  return false;
+}
+
+range.thumb.max.ondragstart = function () {
+  return false;
+}
+
+function getCoords(elem) {
+  var box = elem.getBoundingClientRect();
+  return {
+    top: box.top + pageYOffset,
+    left: box.left + pageXOffset
+  };
+}
+
+//  Ползунки <<
