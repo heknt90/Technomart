@@ -135,32 +135,35 @@ if (modal.close) {
 //  >> Ползунки
 
 var range = {
-  minValue: 0,
-  maxValue: 50000,
+  config: {
+    minValue: 0,
+    maxValue: 50000
+  },
   container: {
     elem: document.querySelector('.price-range__context'),
     getCoords: function() {
       return getCoords(this.elem);
     }
   },
+  // цветной блок, закрашивающий диапозон
   select: document.querySelector('.price-range__selected'),
+  // ползунки
   thumb: {
     min:  document.querySelector('.price-range__handler_min'),
     max: document.querySelector('.price-range__handler_max')
   },
+  // 
   input: {
     min: document.querySelector('.price-range__input-min'),
     max: document.querySelector('.price-range__input-max')
-  },
-  min: function() {
-    return parseInt(getComputedStyle(this.select).left) 
-  },
-  max: function() {
-    return parseInt(getComputedStyle(this.select).right) 
-  },
+  }
 }
 
-var distance = range.maxValue - range.minValue;
+range.min = parseInt(getComputedStyle(range.select).left);
+range.max = range.container.elem.offsetWidth - parseInt(getComputedStyle(range.select).right);
+
+// величина, необходимая для конвертации координаты ползунков в число
+var distance = range.config.maxValue - range.config.minValue;
 var rangeWidth = range.container.elem.offsetWidth;
 
 range.thumb.min.onmousedown = function(e) {
@@ -175,14 +178,15 @@ range.thumb.min.onmousedown = function(e) {
         newLeft = 0;
     }
 
-    if (newLeft > range.max() - range.thumb.min.offsetWidth / 2) {
-        newLeft = range.max() - range.thumb.min.offsetWidth / 2;
+    if (newLeft > range.max - range.thumb.min.offsetWidth / 2) {
+        newLeft = range.max - range.thumb.min.offsetWidth / 2;
     }
 
     range.min = newLeft;
     range.select.style.left = newLeft + 'px';
     
-    range.input.min.value = Math.floor(distance * newLeft / rangeWidth);
+    var newValue = pixelsToValue(newLeft);
+    range.input.min.value = newValue;
   }
   
   document.onmouseup = function() {
@@ -191,22 +195,70 @@ range.thumb.min.onmousedown = function(e) {
   
 }
 
-range.input.min.onchange = function(e) {
-  console.log(e.defaultValue);
-  if (e.target.value > range.maxValue || e.target.value < range.minValue) {
-    e.preventDefault();
-//    console.log('Недопустимое значение!')
-  }
-  var newValue = parseInt(e.target.value, 10);
-  console.log(newValue);
-}
-
 range.thumb.min.ondragstart = function () {
   return false;
 }
 
+range.input.min.onchange = function(e) {
+  var newValue = e.target.value = e.target.valueAsNumber;
+  var newLeft = valueToPixels(newValue);
+  
+  range.min = newLeft;
+  range.select.style.left = newLeft + 'px';
+}
+
+
+
+range.thumb.max.onmousedown = function(e) {
+  var coords = getCoords(range.thumb.max);
+  var shiftX = e.pageX - coords.left;
+  
+  document.onmousemove = function(e) {
+    var newLeft = e.pageX - shiftX - range.container.getCoords().left;
+//    console.log(range.container.getCoords().left + rangeWidth);
+    //если вне слайдера
+    if (newLeft > rangeWidth) {
+        newLeft = rangeWidth;
+    }
+  
+    if (newLeft < range.min - range.thumb.max.offsetWidth / 2) {
+        newLeft = range.min - range.thumb.max.offsetWidth / 2;
+    }
+
+    range.max = newLeft;
+    range.select.style.right = rangeWidth - newLeft + 'px';
+    
+    var newValue = pixelsToValue(newLeft);
+    range.input.max.value = newValue;
+  }
+  
+  document.onmouseup = function() {
+    document.onmousemove = document.onmouseup = null;
+  }
+  
+}
+
 range.thumb.max.ondragstart = function () {
   return false;
+}
+
+range.input.max.onchange = function(e) {
+  var newValue = e.target.value = e.target.valueAsNumber;
+  var newLeft = valueToPixels(newValue);
+  
+  range.max = newLeft;
+  range.select.style.right = rangeWidth - newLeft + 'px';
+}
+
+
+
+
+function pixelsToValue(pixels) {
+  return Math.floor(distance * pixels / rangeWidth)
+}
+
+function valueToPixels(val) {
+  return rangeWidth * val / distance;
 }
 
 function getCoords(elem) {
