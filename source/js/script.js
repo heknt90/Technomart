@@ -23,7 +23,7 @@ if (slider.slides.length) {
       goToSlide(Number(this.dataset.slideNumber));
       pauseSlideShow();
     });
-  } 
+  }
 
   slider.scrollLeft.addEventListener('click', function() {
     prevSlide();
@@ -34,7 +34,7 @@ if (slider.slides.length) {
     pauseSlideShow();
   });
 
-  var startSlideShow = setInterval(nextSlide, 4000);  
+  var startSlideShow = setInterval(nextSlide, 4000);
 }
 
 function goToSlide(n) {
@@ -57,11 +57,11 @@ function pauseSlideShow() {
   clearInterval(startSlideShow);
 }
 
-//  Слайдер << 
+//  Слайдер <<
 
 ///////////////////////////
 
-//  >> Модалки 
+//  >> Модалки
 
 var modal = {
   map: document.querySelector('.modal__map'),
@@ -128,7 +128,7 @@ if (modal.close) {
   }
 }
 
-//  Модалки << 
+//  Модалки <<
 
 ////////////////////////////////////////
 
@@ -152,47 +152,47 @@ var range = {
     min:  document.querySelector('.price-range__handler_min'),
     max: document.querySelector('.price-range__handler_max')
   },
-  // 
+  //
   input: {
     min: document.querySelector('.price-range__input-min'),
     max: document.querySelector('.price-range__input-max')
   }
 }
 
-range.min = parseInt(getComputedStyle(range.select).left);
-range.max = range.container.elem.offsetWidth - parseInt(getComputedStyle(range.select).right);
-
 // величина, необходимая для конвертации координаты ползунков в число
 var distance = range.config.maxValue - range.config.minValue;
 var rangeWidth = range.container.elem.offsetWidth;
 
+range.min = parseInt(getComputedStyle(range.select).left);
+range.max = rangeWidth - parseInt(getComputedStyle(range.select).right);
+
 range.thumb.min.onmousedown = function(e) {
-  var coords = getCoords(range.thumb.min);
+  var coords = getCoords(range.select);
   var shiftX = e.pageX - coords.left;
-  
+
   document.onmousemove = function(e) {
     var newLeft = e.pageX - shiftX - range.container.getCoords().left;
-    
-    //если вне слайдера
+
+    // если вне слайдера
     if (newLeft < 0) {
         newLeft = 0;
     }
 
-    if (newLeft > range.max - range.thumb.min.offsetWidth / 2) {
-        newLeft = range.max - range.thumb.min.offsetWidth / 2;
+    if (newLeft > range.max) {
+        newLeft = range.max;
     }
 
     range.min = newLeft;
     range.select.style.left = newLeft + 'px';
-    
+
     var newValue = pixelsToValue(newLeft);
     range.input.min.value = newValue;
   }
-  
+
   document.onmouseup = function() {
     document.onmousemove = document.onmouseup = null;
   }
-  
+
 }
 
 range.thumb.min.ondragstart = function () {
@@ -202,7 +202,7 @@ range.thumb.min.ondragstart = function () {
 range.input.min.onchange = function(e) {
   var newValue = e.target.value = e.target.valueAsNumber;
   var newLeft = valueToPixels(newValue);
-  
+
   range.min = newLeft;
   range.select.style.left = newLeft + 'px';
 }
@@ -210,32 +210,34 @@ range.input.min.onchange = function(e) {
 
 
 range.thumb.max.onmousedown = function(e) {
-  var coords = getCoords(range.thumb.max);
-  var shiftX = e.pageX - coords.left;
-  
+  var coords = getCoords(range.select);
+  var shiftX = e.pageX - coords.right;
+  console.log('left: ' + coords.left);
+  console.log('right: ' + coords.right);
+  console.log('shiftX: ' + shiftX);
+
   document.onmousemove = function(e) {
     var newLeft = e.pageX - shiftX - range.container.getCoords().left;
-//    console.log(range.container.getCoords().left + rangeWidth);
     //если вне слайдера
     if (newLeft > rangeWidth) {
         newLeft = rangeWidth;
     }
-  
-    if (newLeft < range.min - range.thumb.max.offsetWidth / 2) {
-        newLeft = range.min - range.thumb.max.offsetWidth / 2;
+
+    if (newLeft < range.min) {
+        newLeft = range.min;
     }
 
     range.max = newLeft;
     range.select.style.right = rangeWidth - newLeft + 'px';
-    
+
     var newValue = pixelsToValue(newLeft);
     range.input.max.value = newValue;
   }
-  
+
   document.onmouseup = function() {
     document.onmousemove = document.onmouseup = null;
   }
-  
+
 }
 
 range.thumb.max.ondragstart = function () {
@@ -245,7 +247,7 @@ range.thumb.max.ondragstart = function () {
 range.input.max.onchange = function(e) {
   var newValue = e.target.value = e.target.valueAsNumber;
   var newLeft = valueToPixels(newValue);
-  
+
   range.max = newLeft;
   range.select.style.right = rangeWidth - newLeft + 'px';
 }
@@ -264,8 +266,8 @@ function valueToPixels(val) {
 function getCoords(elem) {
   var box = elem.getBoundingClientRect();
   return {
-    top: box.top + pageYOffset,
-    left: box.left + pageXOffset
+    left: box.left + pageXOffset,
+    right: box.right + pageXOffset
   };
 }
 
