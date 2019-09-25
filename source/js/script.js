@@ -237,23 +237,19 @@ range.thumb.max.onmousedown = function(e) {
   document.onmouseup = function() {
     document.onmousemove = document.onmouseup = null;
   }
-
 }
 
 range.thumb.max.ondragstart = function () {
   return false;
 }
 
-range.input.max.onchange = function(e) {
+range.input.max.onkeydown = function(e) {
   var newValue = e.target.value = e.target.valueAsNumber;
   var newLeft = valueToPixels(newValue);
 
   range.max = newLeft;
   range.select.style.right = rangeWidth - newLeft + 'px';
 }
-
-
-
 
 function pixelsToValue(pixels) {
   return Math.floor(distance * pixels / rangeWidth)

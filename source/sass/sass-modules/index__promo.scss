@@ -144,8 +144,6 @@
   widht: 100%;
   height: 100%;
   box-sizing: border-box;
-  // opacity: 0.3;
-  // transition: opacity 0.5s;
 
   &:first-of-type {
     background-image: url("../img/slide_1_620_266.jpg");
@@ -158,8 +156,7 @@
 
 .slide_visible {
   z-index: 1;
-  opacity: 1;
-  animation: showSlide 0.7s;
+  // animation: showSlide 0.7s;
 }
 
 @keyframes showSlide {
