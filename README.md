@@ -2,6 +2,7 @@
 
 ![](layout/cover.JPG)
 
+
 [Демонстрация верстки](https://heknt90.github.io/technomart/)
 
 ## При верстке данного макета, использовалась система сборки gulp
