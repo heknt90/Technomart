@@ -1,5 +1,10 @@
-/.git
-/build
-/source_old
-/node_modules
+layout
+node_modules
+source
+
+gulpfile.js
 package-lock.json
+package.json
+README.md
+specification-technomart.html.pdf
+TEST.js
