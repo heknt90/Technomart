@@ -1,6 +1,6 @@
 # Шаблон для сайта портфолио
 
-![](layout/cover.jpg)
+![](layout/cover.JPG)
 
 [Демонстрация верстки](https://heknt90.github.io/technomart/)
 
